@@ -80,7 +80,7 @@ function drawRectangles() {
 
   // Draw the sidebar on the left
   blendMode(BLEND);
-  fill('#f7f7f1'); // Change the fill color to white for the sidebar
+  fill('#F7F7F1'); // Change the fill color to white for the sidebar
   rect(sidebarWidth / 2, height / 2, sidebarWidth, height);
 }
 
