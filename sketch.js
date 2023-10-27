@@ -79,7 +79,8 @@ function drawRectangles() {
   }
 
   // Draw the sidebar on the left
-  fill('f7f7f1'); // Change the fill color to white for the sidebar
+  blendMode(BLEND);
+  fill('#f7f7f1'); // Change the fill color to white for the sidebar
   rect(sidebarWidth / 2, height / 2, sidebarWidth, height);
 }
 
@@ -92,7 +93,6 @@ function drawTemperatureKeyAndScale() {
 
   textSize(12);
   fill(0);
-  blendMode(BLEND);
   text('TEMPERATURE SCALE', margin, height - 85);
 
   // Temp Scale
