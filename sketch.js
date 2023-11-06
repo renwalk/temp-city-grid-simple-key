@@ -12,8 +12,8 @@ var padding = 10;
 
 function setup() {
   // Set a fixed canvas size to fit your desired page layout
-  var canvasWidth = 1400; // Adjust the canvas width as needed
-  var canvasHeight = 1050;
+  var canvasWidth = 1000; // Adjust the canvas width as needed
+  var canvasHeight = 700;
   createCanvas(canvasWidth, canvasHeight);
   rectMode(CENTER);
   noStroke();
@@ -87,13 +87,10 @@ function drawRectangles() {
 function drawTemperatureKeyAndScale() {
   // Sidebar
   // Temp Key
-  var keySize = 300;
+  var keySize = width / 4 - margin*2;
   var offset = keySize / 2;
   var yPosition = height / 5.5;
 
-  textSize(12);
-  fill(0);
-  text('TEMPERATURE SCALE', margin, height - 85);
 
   // Temp Scale
   var scaleCircle = 20;
@@ -107,8 +104,6 @@ function drawTemperatureKeyAndScale() {
     ellipse(margin + scaleOffset + i * 2, height - 65, scaleCircle, scaleCircle);
   }
 
-  // Labels for temperature scale
-
   
   for (let i = 0; i <= 100; i += 10) {
     fill(0);
@@ -118,6 +113,11 @@ function drawTemperatureKeyAndScale() {
   }
 
   // Draw the key box and labels
+  var textScale = 10
+  
+  textSize(textScale);
+  text('TEMPERATURE SCALE', margin, height - 85);
+
   stroke(120);
   strokeWeight(0.75);
   noFill();
@@ -126,7 +126,7 @@ function drawTemperatureKeyAndScale() {
 
   textAlign(CENTER, CENTER);
   fill(0);
-  textSize(12);
+  textSize(textScale);
   text('ACTUAL', margin + offset, yPosition - offset + keySize*.05);
   text('FEELS LIKE', margin + offset, yPosition - offset + keySize * 0.5);
   
@@ -153,9 +153,12 @@ function drawTemperatureKeyAndScale() {
     var cellY = cityKeyY + row * cellHeight;
 
     fill(0);
+    textSize(textScale*.75)
     textAlign(CENTER, CENTER);
-    textSize(10);
+    
+    // City Labels
     text(cityNameText, cellX, cellY);
+    textAlign(LEFT);
 
     // Draw vertical lines to denote columns (except for the first column)
     if (col > 0) {
